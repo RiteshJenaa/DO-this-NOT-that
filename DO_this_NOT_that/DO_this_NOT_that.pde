@@ -4,6 +4,8 @@ float buttonX2, buttonY2, buttonWidth2, buttonHeight2;
 float rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight;
 float ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter;
 float x, y, XDiameter, YDiameter;
+color black=#000000, white=#FFFFE1;
+Boolean rectON=false, ellipseON=false;
 //
 void setup()
 {
@@ -57,11 +59,12 @@ void setup()
 
 void draw()
 {
+  background(black);
   rect(buttonX1, buttonY1, buttonWidth1, buttonHeight1); //DIV: "CLICK ME!"
   rect(buttonX2, buttonY2, buttonWidth2, buttonHeight2); //DIV: "ME PLEASE!"
-  rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //DIV: DISPLAY RECT
-  rect(ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter); //DIV: DISPLAY CIRC
-  ellipse(x, y, XDiameter, YDiameter);
+  if (rectON==true && ellipseON==false) rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //DIV: DISPLAY RECT
+  //rect(ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter); //DIV: DISPLAY CIRC
+  if (rectON==false && ellipseON==true) ellipse(x, y, XDiameter, YDiameter);
 }
 //End draw
 
@@ -72,5 +75,9 @@ void keyPressed()
 
 void mousePressed()
 {
+  rectON = false;
+  ellipseON = false;
+  if ( mouseX>=buttonX1 && mouseX<=buttonX1+buttonWidth1 && mouseY>=buttonY1 && mouseY<=buttonY1+buttonHeight1 ) rectON = true;
+  if ( mouseX>=buttonX2 && mouseX<=buttonX2+buttonWidth2 && mouseY>=buttonY2 && mouseY<=buttonY2+buttonHeight2 ) ellipseON = true;
 }
 //End mousePressed
