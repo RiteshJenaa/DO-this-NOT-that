@@ -7,6 +7,11 @@ float x, y, XDiameter, YDiameter;
 color black=#000000, white=#FFFFE1;
 Boolean rectON=false, ellipseON=false;
 //
+String buttonTEXT1= "CLICK ME!";
+String buttonTEXT2= "ME PLEASE!";
+PFont buttonFONT;
+color green = #1EAF17; 
+//
 void setup()
 {
   //Display Geometry
@@ -53,7 +58,12 @@ void setup()
   y = ellipseRectYCENTRE;
   XDiameter = ellipseYDiameter;
   YDiameter = ellipseYDiameter;
-  
+  //
+  //Text Setup
+  //List all fonts available on system
+  println("Starting the Console!");
+  //printArray(fontList); //Listing all possible fonts
+  buttonFONT = createFont ("Arial", 40); //Must also Tools, Create Font then Find Font 
 }
 //End setup
 
@@ -65,6 +75,16 @@ void draw()
   if (rectON==true && ellipseON==false) rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //DIV: DISPLAY RECT
   //rect(ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter); //DIV: DISPLAY CIRC
   if (rectON==false && ellipseON==true) ellipse(x, y, XDiameter, YDiameter);
+  //
+  fill(green); // Color Selector
+  textAlign (CENTER, CENTER); //Align X&Y
+  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
+  textFont(buttonFONT, 70); //font size
+  //
+  //TEXT ON BUTTON
+  text(buttonTEXT1, buttonX1, buttonY1, buttonWidth1, buttonHeight1);
+  text(buttonTEXT2, buttonX2, buttonY2, buttonWidth2, buttonHeight2);
+  fill(white);
 }
 //End draw
 
