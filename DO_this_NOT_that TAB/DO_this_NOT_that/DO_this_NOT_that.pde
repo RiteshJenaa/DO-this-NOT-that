@@ -18,28 +18,13 @@ void setup()
   fullScreen(); //size ( 1080, 720 );
   DisplayOrientation();
   population();
-  textSetup();
+  textSetUp();
 }
 //End setup
 
 void draw()
 {
-  background(black);
-  rect(buttonX1, buttonY1, buttonWidth1, buttonHeight1); //DIV: "CLICK ME!"
-  rect(buttonX2, buttonY2, buttonWidth2, buttonHeight2); //DIV: "ME PLEASE!"
-  if (rectON==true && ellipseON==false) rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //DIV: DISPLAY RECT
-  //rect(ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter); //DIV: DISPLAY CIRC
-  if (rectON==false && ellipseON==true) ellipse(x, y, XDiameter, YDiameter);
-  //
-  fill(green); // Color Selector
-  textAlign (CENTER, CENTER); //Align X&Y
-  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
-  textFont(buttonFONT, 70); //font size
-  //
-  //TEXT ON BUTTON
-  text(buttonTEXT1, buttonX1, buttonY1, buttonWidth1, buttonHeight1);
-  text(buttonTEXT2, buttonX2, buttonY2, buttonWidth2, buttonHeight2);
-  fill(white);
+  GUI_draw();
 }
 //End draw
 
@@ -50,9 +35,6 @@ void keyPressed()
 
 void mousePressed()
 {
-  rectON = false;
-  ellipseON = false;
-  if ( mouseX>=buttonX1 && mouseX<=buttonX1+buttonWidth1 && mouseY>=buttonY1 && mouseY<=buttonY1+buttonHeight1 ) rectON = true;
-  if ( mouseX>=buttonX2 && mouseX<=buttonX2+buttonWidth2 && mouseY>=buttonY2 && mouseY<=buttonY2+buttonHeight2 ) ellipseON = true;
+  buttonsMousePressed();
 }
 //End mousePressed
