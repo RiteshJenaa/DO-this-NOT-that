@@ -15,13 +15,13 @@ color green = #1EAF17;
 void setup()
 {
   //Display Geometry
-  //size ( 200, 300 );
+  //size ( 1080, 720 );
   fullScreen();
   //Display Orientation : Landscape
   println (width, height, displayWidth, displayHeight); //Testing
   String ls="Landscape or Square", p="portrait", DO="Display Orientation:", instruct="Brooo turn your CELLULAR PHONE!";
-  int appWidth = displayWidth;
-  int appHeight = displayHeight;
+  int appWidth = width;
+  int appHeight = height;
   String orientation = ( appWidth >= appHeight ) ? ls : p ; //Ternary Operator
   println ( DO, orientation );
   if (orientation==ls) {
