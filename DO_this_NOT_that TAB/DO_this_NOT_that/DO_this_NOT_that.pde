@@ -15,12 +15,9 @@ color green = #1EAF17;
 void setup()
 {
   //Display Geometry
-  //size ( 1080, 720 );
-  fullScreen();
+  fullScreen(); //size ( 1080, 720 );
   DisplayOrientation();
-  //
   population();
-  //
   textSetup();
 }
 //End setup
